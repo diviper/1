@@ -1,28 +1,28 @@
- language: python 
-2 #sudo: required 
-3 dist: trusty 
-4 python: 
-5   - "3.4" 
-6   - "3.5" 
-7 before_install: 
-8 - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa 
-9 - sudo apt-get update 
-10 - sudo apt-get install qt5-qmake 
-11 - sudo apt-get install qtbase5-dev 
-12 - sudo apt-get install qtdeclarative5-dev 
-13 - sudo apt-get install build-essential libgl1-mesa-dev 
-14 - wget https://sourceforge.net/projects/pyqt/files/sip/sip-4.18.1/sip-4.18.1.tar.gz 
-15 - tar xvzf sip-4.18.1.tar.gz 
-16 - cd sip-4.18.1/ 
-17 - python configure.py -d ~/dev/envs/pyqt5/lib/python3.4/site-packages/ 
-18 - make 
-19 - sudo make install 
-20 - sudo make clean 
-21 - cd .. 
-22 - qmake -qt=qt5 -v 
-23 - sudo apt-get -y install python3-pyqt5 
-24 install: 
-25 - pip install -r requirements.txt 
-26 script: 
-27 - chmod +x test.sh 
-28 - ./test.sh 
+language: python 
+#sudo: required 
+dist: trusty 
+python: 
+- "3.4" 
+- "3.5" 
+before_install: 
+- sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa 
+- sudo apt-get update 
+- sudo apt-get install qt5-qmake 
+- sudo apt-get install qtbase5-dev 
+- sudo apt-get install qtdeclarative5-dev 
+- sudo apt-get install build-essential libgl1-mesa-dev 
+- wget https://sourceforge.net/projects/pyqt/files/sip/sip-4.18.1/sip-4.18.1.tar.gz 
+- tar xvzf sip-4.18.1.tar.gz 
+- cd sip-4.18.1/ 
+- python configure.py -d ~/dev/envs/pyqt5/lib/python3.4/site-packages/ 
+- make 
+- sudo make install 
+- sudo make clean 
+- cd .. 
+- qmake -qt=qt5 -v 
+- sudo apt-get -y install python3-pyqt5 
+install: 
+- pip install -r requirements.txt 
+script: 
+- chmod +x test.sh 
+- ./test.sh 
