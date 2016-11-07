@@ -1,28 +1,9 @@
-language: python 
-#sudo: required 
-dist: trusty 
+language : python 
+os : windows 
+#supports as the most modern as less to merge with Sergei`s project 
 python: 
-- "3.4" 
-- "3.5" 
-before_install: 
-- sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa 
-- sudo apt-get update 
-- sudo apt-get install qt5-qmake 
-- sudo apt-get install qtbase5-dev 
-- sudo apt-get install qtdeclarative5-dev 
-- sudo apt-get install build-essential libgl1-mesa-dev 
-- wget https://sourceforge.net/projects/pyqt/files/sip/sip-4.18.1/sip-4.18.1.tar.gz 
-- tar xvzf sip-4.18.1.tar.gz 
-- cd sip-4.18.1/ 
-- python configure.py -d ~/dev/envs/pyqt5/lib/python3.4/site-packages/ 
-- make 
-- sudo make install 
-- sudo make clean 
-- cd .. 
-- qmake -qt=qt5 -v 
-- sudo apt-get -y install python3-pyqt5 
-install: 
-- pip install -r requirements.txt 
-script: 
-- chmod +x test.sh 
-- ./test.sh 
+    - "3.5" 
+install : 
+- pip install -r .travis.requirements.txt 
+script : 
+ flake8
